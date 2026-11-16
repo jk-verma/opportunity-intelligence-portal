@@ -49,7 +49,12 @@ def permitted(url):
     try:
         parser.parse(get(robots).splitlines())
         return parser.can_fetch(USER_AGENT, url)
-    except (HTTPError, URLError, TimeoutError, ValueError) as exc:
+    except HTTPError as exc:
+        if exc.code in (404, 410):
+            return True  # No robots.txt rules published; ordinary access restrictions still apply.
+        print(f"Skipping {url}: robots.txt returned HTTP {exc.code}", file=sys.stderr)
+        return False
+    except (URLError, TimeoutError, ValueError) as exc:
         print(f"Skipping {url}: cannot confirm robots.txt permission ({exc})", file=sys.stderr)
         return False
 
