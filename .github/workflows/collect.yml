@@ -52,5 +52,6 @@ jobs:
           git add pending-opportunities.json
           if ! git diff --cached --quiet; then
             git commit -m "Refresh public pending advertisement snapshot [skip ci]"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
