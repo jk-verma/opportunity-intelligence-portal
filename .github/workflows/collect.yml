@@ -48,11 +48,13 @@ jobs:
         run: python collectors/publish_curated.py
 
       - name: Export pending advertisements for transparent public review
+        if: success() || failure()
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python collectors/export_pending.py
       - name: Commit updated public discovery snapshot
+        if: success() || failure()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
