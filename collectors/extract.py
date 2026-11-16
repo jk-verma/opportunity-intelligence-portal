@@ -65,5 +65,5 @@ def extract(html):
     deadline=labeled_value(lines,("Last date to apply","Application deadline","Closing date","Last date for submission"),50)
     if deadline:
         parsed=parse_date(deadline)
-        if parsed:data["deadline_at"]=parsed+"T23:59:59+00:00"
+        # Deadline is timestamptz; without a stated cutoff time and timezone, do not invent one.\n        # Preserve the candidate as pending for human verification of the exact deadline.
     return data
