@@ -190,5 +190,65 @@
       "recruitment",
       "advertisement"
     ]
+  },
+  {
+    "id": "iimc-faculty",
+    "name": "IIM Calcutta faculty positions",
+    "category": "academic",
+    "url": "https://www.iimcal.ac.in/call-for-faculty-positions-iim-calcutta",
+    "include": [
+      "faculty",
+      "professor",
+      "positions",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimc-jobs",
+    "name": "IIM Calcutta current job listings",
+    "category": "academic",
+    "url": "https://www.iimcal.ac.in/jobsiimc",
+    "include": [
+      "faculty",
+      "professor",
+      "academic associate",
+      "recruitment"
+    ]
+  },
+  {
+    "id": "iiml-faculty",
+    "name": "IIM Lucknow faculty recruitment",
+    "category": "academic",
+    "url": "https://www.iiml.ac.in/facultyrecruitment",
+    "include": [
+      "faculty",
+      "professor",
+      "recruitment"
+    ]
+  },
+  {
+    "id": "iiml-jobs",
+    "name": "IIM Lucknow recruitment notices",
+    "category": "academic",
+    "url": "https://www.iiml.ac.in/job-detail",
+    "include": [
+      "research staff",
+      "faculty",
+      "professor",
+      "recruitment"
+    ]
+  },
+  {
+    "id": "adb-current",
+    "name": "Asian Development Bank current opportunities",
+    "category": "international",
+    "url": "https://www.adb.org/work-with-us/careers/current-opportunities",
+    "include": [
+      "specialist",
+      "economist",
+      "officer",
+      "advisor",
+      "consultant"
+    ]
   }
 ]
