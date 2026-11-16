@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 from urllib.parse import quote
 from collect import api_request
+from urllib.parse import urlencode
 
 ROOT=Path(__file__).resolve().parent
 
@@ -25,8 +26,14 @@ def main():
             raise ValueError("Curated deadlines must have an explicit UTC timestamp")
     for row in rows:
         existing=api_request("opportunities?select=id,status&official_url=eq."+quote(row["official_url"],safe=""))
-        if json.loads(existing):
-            print(json.dumps({"url":row["official_url"],"result":"already_exists_unchanged"}))
+        found=json.loads(existing)
+        if found:
+            if found[0]["status"] == "pending":
+                # Promote an independently reviewed candidate without changing its original URL.
+                api_request("opportunities?id=eq."+quote(found[0]["id"],safe=""),method="PATCH",payload={**row,"status":"verified"})
+                print(json.dumps({"url":row["official_url"],"result":"promoted_to_verified"}))
+            else:
+                print(json.dumps({"url":row["official_url"],"result":"already_reviewed_unchanged"}))
             continue
         payload={**row,"status":"verified"}
         api_request("opportunities",method="POST",payload=payload)
