@@ -1,5 +1,11 @@
 name: Discover official opportunities
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'collectors/curated_verified.json'
+      - 'collectors/publish_curated.py'
+      - '.github/workflows/collect.yml'
   schedule:
     - cron: '17 3 * * *'
   workflow_dispatch:
