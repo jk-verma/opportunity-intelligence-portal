@@ -83,6 +83,8 @@ ROLE_TERMS = (
     "award nominations", "fellowship applications",
 )
 DOCUMENT_SUFFIXES = (".pdf", ".doc", ".docx")
+ACADEMIC_TEACHING = re.compile(r"\b(professor|faculty|lecturer|teaching|academic associate)\b", re.I)
+ACADEMIC_EXCLUDE = re.compile(r"\b(non[- ]teaching|non[- ]academic|administrative|registrar|librarian|accountant|accounts officer|finance officer|office assistant|clerk|stenographer|driver|security|maintenance|technical assistant|junior engineer|executive assistant|placement officer|staff recruitment)\b", re.I)
 
 def candidate_link(href, label, source):
     """Return a specific advertisement candidate, never a generic career landing page."""
@@ -90,6 +92,8 @@ def candidate_link(href, label, source):
     if not 15 <= len(label) <= 220:
         return None
     lower = label.casefold()
+    if source["category"] == "academic" and (ACADEMIC_EXCLUDE.search(label) or not ACADEMIC_TEACHING.search(label)):
+        return None
     if lower in GENERIC_LABELS or lower.startswith(("http://", "https://", "/content/")):
         return None
     if not any(term in lower for term in source["include"]):
