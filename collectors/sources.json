@@ -49,5 +49,112 @@
       "consultant",
       "recruitment"
     ]
+  },
+  {
+    "id": "iift-careers",
+    "name": "IIFT current vacancies",
+    "category": "academic",
+    "url": "https://www.iift.ac.in/career",
+    "include": [
+      "recruitment",
+      "faculty",
+      "professor",
+      "research officer",
+      "research associate",
+      "consultant",
+      "vacancy",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimk-careers",
+    "name": "IIM Kozhikode current openings",
+    "category": "academic",
+    "url": "https://www.iimk.ac.in/careers",
+    "include": [
+      "recruitment",
+      "faculty",
+      "professor",
+      "academic associate",
+      "research",
+      "vacancy",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimk-jobportal",
+    "name": "IIM Kozhikode job portal",
+    "category": "academic",
+    "url": "https://webapps.iimk.ac.in/jobportal/vacancy",
+    "include": [
+      "recruitment",
+      "faculty",
+      "professor",
+      "academic associate",
+      "research",
+      "vacancy",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimk-faculty",
+    "name": "IIM Kozhikode faculty recruitment",
+    "category": "academic",
+    "url": "https://iimk.ac.in/faculty-recruitment",
+    "include": [
+      "faculty",
+      "professor",
+      "recruitment",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimr-careers",
+    "name": "IIM Ranchi faculty and staff careers",
+    "category": "academic",
+    "url": "https://iimranchi.ac.in/careers/",
+    "include": [
+      "faculty",
+      "professor",
+      "recruitment",
+      "vacancy",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimm-faculty",
+    "name": "IIM Mumbai faculty recruitment",
+    "category": "academic",
+    "url": "https://iimmumbai.ac.in/faculty-recruitment",
+    "include": [
+      "faculty",
+      "professor",
+      "recruitment",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimi-faculty",
+    "name": "IIM Indore faculty positions",
+    "category": "academic",
+    "url": "https://iimidr.ac.in/advertisement-for-faculty-positions/",
+    "include": [
+      "faculty",
+      "professor",
+      "recruitment",
+      "advertisement"
+    ]
+  },
+  {
+    "id": "iimj-faculty",
+    "name": "IIM Jammu faculty positions",
+    "category": "academic",
+    "url": "https://www.iimj.ac.in/advertisement-faculty-positions-nov2026.php",
+    "include": [
+      "faculty",
+      "professor",
+      "recruitment",
+      "advertisement"
+    ]
   }
 ]
