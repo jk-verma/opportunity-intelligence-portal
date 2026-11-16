@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const categoryNames={academic:'Academic careers',government:'Government & deputation',international:'International organizations',research:'Funded research',consultancy:'Consultancy projects',awards:'Awards & fellowships'};
 const apiBase=(cfg.url||'').replace(/\/$/,'');
 const publicHeaders={apikey:cfg.publishableKey||''};
-let opportunities=[],applications=new Map(),accessToken='',user=null,selectedId=null;
+let opportunities=[],applications=new Map(),accessToken=sessionStorage.getItem('oip_access_token')||'',user=null,selectedId=null;
 for(const [key,name] of Object.entries(categoryNames)){const opt=document.createElement('option');opt.value=key;opt.textContent=name;$('category').append(opt);}
 function el(tag,value,className){const n=document.createElement(tag);if(value!==undefined)n.textContent=String(value);if(className)n.className=className;return n;}
 function status(message){$('status').textContent=message;}
@@ -81,13 +81,13 @@ function updateAccount(){
 function sessionFromUrl(){
  const hash=new URLSearchParams(location.hash.slice(1));
  const token=hash.get('access_token');
- if(token){accessToken=token;history.replaceState(null,'',location.pathname+location.search);return true;}
+ if(token){accessToken=token;sessionStorage.setItem('oip_access_token',token);history.replaceState(null,'',location.pathname+location.search);return true;}
  return false;
 }
 async function refreshSession(){
  if(!accessToken){user=null;updateAccount();await loadApplications();return;}
  try{user=await request('/auth/v1/user');}
- catch{accessToken='';user=null;status('Your sign-in session expired. Sign in again to access saved decisions.');}
+ catch{accessToken='';sessionStorage.removeItem('oip_access_token');user=null;status('Your sign-in session expired. Sign in again to access saved decisions.');}
  updateAccount();await loadApplications();
 }
 function openDecision(o){
@@ -124,7 +124,7 @@ $('auth-form').addEventListener('submit',async e=>{
  finally{button.disabled=false;}
 });
 $('sign-in').addEventListener('click',()=>$('auth-dialog').showModal());
-$('sign-out').addEventListener('click',()=>{accessToken='';user=null;updateAccount();loadApplications();});
+$('sign-out').addEventListener('click',()=>{accessToken='';sessionStorage.removeItem('oip_access_token');user=null;updateAccount();loadApplications();});
 $('cancel-auth').addEventListener('click',()=>$('auth-dialog').close());
 $('cancel-decision').addEventListener('click',()=>$('decision-dialog').close());
 for(const id of ['search','category','deadline','decision-filter','sort'])$(id).addEventListener(id==='search'?'input':'change',render);
