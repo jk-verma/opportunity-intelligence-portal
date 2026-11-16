@@ -101,5 +101,63 @@
     "published_at": null,
     "deadline_at": null,
     "source_identifier": "curated-iiml-ai"
+  },
+  {
+    "title": "ANRF Prime Minister Early Career Research Grant, 2026",
+    "category": "research",
+    "location": "India",
+    "official_url": "https://www.anrfonline.in/ANRF/HomePage",
+    "description": "ANRF lists this research grant as an ongoing call, open 2 November to 2 December 2026. Refer to the scheme and application portal for detailed eligibility.",
+    "published_at": "2026-11-02",
+    "deadline_at": "2026-12-02T11:30:00Z",
+    "source_identifier": "curated-anrf-pmecrg-2026"
+  },
+  {
+    "title": "ANRF Ramanujan Fellowship, 2026",
+    "category": "awards",
+    "location": "India",
+    "official_url": "https://www.anrfonline.in/ANRF/HomePage",
+    "description": "ANRF ongoing fellowship call, open throughout 2026 with closing date 31 December 2026, 5:00 PM IST. Refer to official fellowship conditions.",
+    "deadline_at": "2026-12-31T11:30:00Z",
+    "source_identifier": "curated-anrf-ramanujan-2026"
+  },
+  {
+    "title": "ICMR ANVESHAN Small Extramural Research Grants, 2027",
+    "category": "research",
+    "location": "India",
+    "official_url": "https://www.icmr.gov.in/post/call-for-investigator-initiated-research-proposals-for-icmr-small-extramural-grants-icmr-anveshan-extramural-grants-2027-last-date-january-20-2027-5-00-pm-ist",
+    "description": "ICMR investigator-initiated small extramural research grant call. Official closing date: 20 January 2027, 5:00 PM IST. Consult the PDF for institutional and investigator eligibility.",
+    "deadline_at": "2027-01-20T11:30:00Z",
+    "source_identifier": "curated-icmr-small-2027"
+  },
+  {
+    "title": "ICMR NISCHAYAK ANVESHAN Intermediate Extramural Grants, 2027",
+    "category": "research",
+    "location": "India",
+    "official_url": "https://www.icmr.gov.in/post/call-for-investigator-initiated-research-proposals-for-icmr-intermediate-extramural-grants-icmr-nischayak-anveshan-extramural-grants-2027-last-date-january-20-2027-5-00-pm-ist",
+    "description": "ICMR investigator-initiated intermediate extramural research grants. Deadline: 20 January 2027, 5:00 PM IST. Refer to official PDF for eligibility and grant conditions.",
+    "deadline_at": "2027-01-20T11:30:00Z",
+    "source_identifier": "curated-icmr-intermediate-2027"
+  },
+  {
+    "title": "World Bank consultancy: National Critical Minerals Stockpiling Framework, India",
+    "category": "consultancy",
+    "location": "India",
+    "official_url": "https://wbgeprocure-rfxnow.worldbank.org/rfxnow/public/advertisement/7504/view.html",
+    "description": "World Bank Group request for expression of interest from qualified consulting firms to develop a national critical minerals stockpiling framework for India's Ministry of Mines. Three-month assignment. Procurement 0002024410.",
+    "published_at": "2026-11-11",
+    "deadline_at": "2026-11-27T04:59:00Z",
+    "eligibility": "Qualified consulting firms; see procurement notice for selection requirements.",
+    "source_identifier": "curated-wbg-minerals-7504"
+  },
+  {
+    "title": "World Bank consultancy: Digital Corridors for Economic Growth in Latin America and Caribbean",
+    "category": "consultancy",
+    "location": "Latin America and Caribbean",
+    "official_url": "https://www.worldbank.org/en/about/corporate-procurement/business-opportunities/administrative-procurement",
+    "description": "World Bank administrative procurement listing RFxNow 2024432, digital infrastructure investments in LAC. The official procurement index gives closing date 26 November 2026. Check the detailed solicitation for eligibility.",
+    "published_at": "2026-11-12",
+    "deadline_at": "2026-11-26T23:59:00Z",
+    "source_identifier": "curated-wbg-digital-corridors-2024432"
   }
 ]
