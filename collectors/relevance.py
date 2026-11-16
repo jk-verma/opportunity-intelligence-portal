@@ -17,6 +17,7 @@ FOCUS = re.compile(
     r"database|programming|python|analytics|digitalization|digitisation|digitization|"
     r"e.governance|digital public infrastructure|ict|it systems|ai/ml|"
     r"operations research|optimization|optimisation)\b",re.I)
+SENIOR_SCIENTIFIC = re.compile(r"\b(deputation|scientist|scientific attache|scientific attaché|senior adviser|senior advisor|adviser|advisor|specialist|mission director|technical director|joint director|deputy director|policy lead|research officer|innovation lead|technology lead)\b",re.I)
 GENERAL_FACULTY = re.compile(r"\b(faculty|professor|lecturer|teaching)\b",re.I)
 UNRELATED = re.compile(
     r"\b(agriculture|agronomy|horticulture|veterinary|nursing|dentistry|"
@@ -32,6 +33,7 @@ def relevant(title,category,description="",qualifications="",eligibility=""):
     if FOCUS.search(title):return True
     if UNRELATED.search(title):return False
     if FOCUS.search(detail):return True
+    if category in ("government","consultancy","international") and SENIOR_SCIENTIFIC.search(title):return True
     # Broad faculty advertisements can cover Information Systems even when
     # the short link text does not list every teaching area.
     if category=="academic" and GENERAL_FACULTY.search(title):return True
