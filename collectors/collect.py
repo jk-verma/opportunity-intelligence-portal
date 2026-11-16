@@ -171,9 +171,9 @@ def persist(rows):
     if not rows:
         return 0
     # Do not overwrite human-reviewed records. Ignore duplicates on official_url.
-    api_request("opportunities?on_conflict=official_url", method="POST",
-                payload=rows, headers={"Prefer": "resolution=ignore-duplicates,return=minimal"})
-    return len(rows)  # attempted inserts, not confirmed new inserts
+    result = api_request("opportunities?on_conflict=official_url", method="POST",
+                payload=rows, headers={"Prefer": "resolution=ignore-duplicates,return=representation"})
+    return len(json.loads(result))  # confirmed newly inserted records
 
 def main():
     ap = argparse.ArgumentParser()
@@ -194,8 +194,8 @@ def main():
             candidates = discover(source)
             print(json.dumps({"source": source["id"], "candidate_count": len(candidates), "candidates": candidates[:5]}))
             if not args.dry_run:
-                persist(candidates)
-                record_run(source, "completed", len(candidates), 0)
+                inserted = persist(candidates)
+                record_run(source, "completed", len(candidates), inserted)
         except (HTTPError, URLError, TimeoutError) as exc:
             # Individual official sites can be temporarily unreachable from GitHub runners.
             source_errors += 1
