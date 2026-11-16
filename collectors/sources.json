@@ -56,14 +56,9 @@
     "category": "academic",
     "url": "https://www.iift.ac.in/career",
     "include": [
-      "recruitment",
       "faculty",
       "professor",
-      "research officer",
-      "research associate",
-      "consultant",
-      "vacancy",
-      "advertisement"
+      "recruitment"
     ]
   },
   {
