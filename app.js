@@ -117,7 +117,7 @@ $('auth-form').addEventListener('submit',async e=>{
  e.preventDefault();const button=$('auth-form').querySelector('button[type=submit]');button.disabled=true;
  try{
   const redirect=location.origin+location.pathname;
-  const r=await fetch(apiBase+'/auth/v1/otp',{method:'POST',headers:{...publicHeaders,'Content-Type':'application/json'},body:JSON.stringify({email:$('email').value.trim(),create_user:true,email_redirect_to:redirect})});
+  const r=await fetch(apiBase+'/auth/v1/otp?redirect_to='+encodeURIComponent(redirect),{method:'POST',headers:{...publicHeaders,'Content-Type':'application/json'},body:JSON.stringify({email:$('email').value.trim(),create_user:true})});
   if(!r.ok)throw new Error('HTTP '+r.status);
   $('auth-message').textContent='Check your inbox for the sign-in link. Return to this page after opening it.';
  }catch(err){$('auth-message').textContent='Unable to send sign-in link: '+err.message;}
