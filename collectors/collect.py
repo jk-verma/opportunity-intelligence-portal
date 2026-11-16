@@ -101,7 +101,7 @@ def candidate_link(href, label, source):
         return None
     # Specific recruitment notices only; broad "jobs" and "career" are insufficient.
     specific = any(term in lower for term in ROLE_TERMS)
-    numbered = bool(re.search(r"\\b(?:advt\\.?|advertisement|notification|vacancy|tender|rfp|eoi)\\s*(?:no\\.?|number|#|[:\\-])?\\s*[a-z0-9/-]*\\d", lower))
+    numbered = bool(re.search(r"\b(?:advt\.?|advertisement|notification|vacancy|tender|rfp|eoi)\s*(?:no\.?|number|#|[:\-])?\s*[a-z0-9/-]*\d", lower))
     doc = path.endswith(DOCUMENT_SUFFIXES)
     if not (specific or numbered or (doc and any(w in lower for w in ("recruitment", "faculty", "vacancy", "proposal", "fellowship", "award", "tender")))):
         return None
