@@ -1,4 +1,4 @@
-"""Publish a small, manually researched set of official faculty recruitment notices.
+"""Publish reviewed official opportunities across supported categories.
 
 Only the reviewed records in curated_verified.json are published. The daily
 discovery collector continues to save all new, unreviewed findings as pending.
@@ -19,10 +19,10 @@ def main():
         if not url.startswith("https://") or url in urls:
             raise ValueError("Duplicate or insecure curated official_url: "+url)
         urls.add(url)
-        if not row["title"] or row["category"]!="academic":
+        if not row["title"] or row["category"] not in {"academic","government","international","research","consultancy","awards"}:
             raise ValueError("Invalid curated entry")
-        if row.get("deadline_at"):
-            raise ValueError("Curated deadline requires independent timezone and cutoff verification")
+        if row.get("deadline_at") and not row["deadline_at"].endswith("Z"):
+            raise ValueError("Curated deadlines must have an explicit UTC timestamp")
     for row in rows:
         existing=api_request("opportunities?select=id,status&official_url=eq."+quote(row["official_url"],safe=""))
         if json.loads(existing):
