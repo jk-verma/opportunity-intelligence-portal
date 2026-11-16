@@ -85,16 +85,23 @@ def discover(source):
 
 def api_request(path, method="GET", payload=None, headers=None):
     base = os.environ["SUPABASE_URL"].rstrip("/")
-    key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+    key = os.environ["SUPABASE_SERVICE_ROLE_KEY"].strip()
     body = json.dumps(payload).encode() if payload is not None else None
+    # Legacy service_role JWT uses Bearer auth. New sb_secret_* keys use apikey only.
+    auth = {"apikey": key}
+    if key.startswith("eyJ"):
+        auth["Authorization"] = "Bearer " + key
     request = Request(
         base + "/rest/v1/" + path, data=body, method=method,
-        headers={"apikey": key, "Authorization": "Bearer " + key,
-                 "Content-Type": "application/json", "Prefer": "return=minimal",
-                 **(headers or {})},
+        headers={**auth, "Content-Type": "application/json",
+                 "Prefer": "return=minimal", **(headers or {})},
     )
-    with urlopen(request, timeout=25) as response:
-        return response.read()
+    try:
+        with urlopen(request, timeout=25) as response:
+            return response.read()
+    except HTTPError as exc:
+        details = exc.read(1200).decode("utf-8", errors="replace")
+        raise RuntimeError(f"Supabase HTTP {exc.code}: {details}") from exc
 
 def record_run(source, status, found=0, inserted=0, error=None):
     if not os.getenv("SUPABASE_SERVICE_ROLE_KEY"):
@@ -121,6 +128,9 @@ def main():
     sources = json.loads((ROOT / "sources.json").read_text())
     if not args.dry_run and not all(os.getenv(k) for k in ("SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY")):
         sys.exit("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY")
+    if not args.dry_run:
+        # Check DB permissions before contacting external sources.
+        api_request("collection_runs?select=id&limit=1")
     failures = 0
     for source in sources:
         if source["category"] not in ALLOWED_CATEGORIES:
