@@ -151,5 +151,44 @@
       "recruitment",
       "advertisement"
     ]
+  },
+  {
+    "id": "iimb-faculty",
+    "name": "IIM Bangalore faculty recruitment",
+    "category": "academic",
+    "url": "https://www.iimb.ac.in/faculty-recruitments",
+    "include": [
+      "assistant professor",
+      "associate professor",
+      "professor",
+      "faculty",
+      "recruitment"
+    ]
+  },
+  {
+    "id": "iimb-area-specific",
+    "name": "IIM Bangalore area-specific faculty openings",
+    "category": "academic",
+    "url": "https://www.iimb.ac.in/faculty-recruitments/area-specific",
+    "include": [
+      "assistant professor",
+      "associate professor",
+      "professor",
+      "information systems",
+      "faculty"
+    ]
+  },
+  {
+    "id": "iimb-jobs",
+    "name": "IIM Bangalore job opportunities",
+    "category": "academic",
+    "url": "https://www.iimb.ac.in/job-opportunities",
+    "include": [
+      "faculty",
+      "professor",
+      "research",
+      "recruitment",
+      "advertisement"
+    ]
   }
 ]
