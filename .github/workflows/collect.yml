@@ -5,6 +5,9 @@ on:
     paths:
       - 'collectors/curated_verified.json'
       - 'collectors/publish_curated.py'
+      - 'collectors/sources.json'
+      - 'collectors/collect.py'
+      - 'collectors/test_*.py'
       - '.github/workflows/collect.yml'
   schedule:
     - cron: '17 3 * * *'
