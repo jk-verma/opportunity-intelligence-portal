@@ -12,6 +12,7 @@ from urllib.parse import urljoin, urlparse, urldefrag
 from urllib.request import Request, urlopen
 from urllib.robotparser import RobotFileParser
 from pathlib import Path
+from extract import extract
 
 USER_AGENT = "OpportunityIntelligencePortal/0.1 (public opportunity discovery; contact via GitHub)"
 ROOT = Path(__file__).resolve().parent
@@ -124,7 +125,17 @@ def discover(source):
         candidate = candidate_link(href, label, source)
         if candidate:
             found[candidate["official_url"]] = candidate
-    return list(found.values())[:40]
+    candidates = list(found.values())[:40]
+    # Enrich a small number of same-host HTML notices; never assume PDF contents.
+    for item in candidates[:5]:
+        url = item["official_url"]
+        if urlparse(url).path.lower().endswith(DOCUMENT_SUFFIXES):
+            continue
+        try:
+            item.update(extract(get(url)))
+        except (HTTPError, URLError, TimeoutError, ValueError) as exc:
+            print(f"Could not inspect advertisement detail {url}: {exc}", file=sys.stderr)
+    return candidates
 
 def api_request(path, method="GET", payload=None, headers=None):
     base = os.environ["SUPABASE_URL"].rstrip("/")
