@@ -12,7 +12,8 @@ from urllib.parse import urljoin, urlparse, urldefrag
 from urllib.request import Request, urlopen
 from urllib.robotparser import RobotFileParser
 from pathlib import Path
-from extract import extract
+from extract import extract, page_lines
+from ai_extract import enrich
 
 USER_AGENT = "OpportunityIntelligencePortal/0.1 (public opportunity discovery; contact via GitHub)"
 ROOT = Path(__file__).resolve().parent
@@ -137,7 +138,18 @@ def discover(source):
         if urlparse(url).path.lower().endswith(DOCUMENT_SUFFIXES):
             continue
         try:
-            item.update(extract(get(url)))
+            html=get(url)
+            item.update(extract(html))
+            if os.getenv('OPENAI_API_KEY') or os.getenv('ANTHROPIC_API_KEY'):
+                ai_data, provider=enrich('\n'.join(page_lines(html)))
+                # Only use AI suggestions that are verbatim present on the official page.
+                evidence=' '.join(page_lines(html)).casefold()
+                for field,value in ai_data.items():
+                    if field in ('deadline_at','published_at'):
+                        continue  # Dates require deterministic independent verification.
+                    if field not in item and value.casefold() in evidence:
+                        item[field]=value
+                if provider:print(json.dumps({'ai_enrichment_provider':provider,'url':url}))
         except (HTTPError, URLError, TimeoutError, ValueError) as exc:
             print(f"Could not inspect advertisement detail {url}: {exc}", file=sys.stderr)
     return candidates
