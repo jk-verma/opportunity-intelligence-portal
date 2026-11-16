@@ -1,0 +1,53 @@
+[
+  {
+    "id": "upsc-recruitment",
+    "name": "UPSC recruitment advertisements",
+    "category": "government",
+    "url": "https://upsc.gov.in/recruitment/recruitment-advertisements",
+    "include": [
+      "recruitment",
+      "advertisement",
+      "vacancy",
+      "deputation",
+      "lateral entry"
+    ]
+  },
+  {
+    "id": "iima-faculty",
+    "name": "IIM Ahmedabad faculty recruitment",
+    "category": "academic",
+    "url": "https://www.iima.ac.in/faculty-research/faculty-recruitment",
+    "include": [
+      "faculty",
+      "professor",
+      "recruitment",
+      "application"
+    ]
+  },
+  {
+    "id": "dst-calls",
+    "name": "Department of Science and Technology",
+    "category": "research",
+    "url": "https://dst.gov.in/call-for-proposals",
+    "include": [
+      "call for",
+      "proposal",
+      "research",
+      "grant",
+      "funding"
+    ]
+  },
+  {
+    "id": "worldbank-jobs",
+    "name": "World Bank Careers",
+    "category": "international",
+    "url": "https://www.worldbank.org/en/about/careers",
+    "include": [
+      "jobs",
+      "vacancies",
+      "career",
+      "consultant",
+      "recruitment"
+    ]
+  }
+]
