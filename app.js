@@ -18,7 +18,11 @@ function daysLeft(o){const d=dateOf(o.deadline_at);return d===null?null:Math.cei
 function decisionOf(o){const a=applications.get(o.id);return a?.decision||(isExpired(o)?'missed':'none');}
 async function request(path,options={}){
  const headers={...publicHeaders,...(options.headers||{})};
- const r=await fetch(apiBase+path,{...options,headers});
+ const controller=new AbortController();
+ const timeout=setTimeout(()=>controller.abort(),12000);
+ let r;
+ try{r=await fetch(apiBase+path,{...options,headers,signal:controller.signal});}
+ finally{clearTimeout(timeout);}
  if(!r.ok){let detail='';try{const e=await r.json();detail=e.message||e.msg||'';}catch{}throw new Error('HTTP '+r.status+(detail?' · '+detail:''));}
  if(r.status===204)return null;
  const body=await r.text();return body?JSON.parse(body):null;
@@ -93,4 +97,4 @@ $('decision-form').addEventListener('submit',e=>{
 });
 $('cancel-decision').addEventListener('click',()=>$('decision-dialog').close());
 for(const id of ['search','category','deadline','decision-filter','sort'])$(id).addEventListener(id==='search'?'input':'change',render);
-loadOpportunities();
+loadOpportunities().catch(e=>{status('Portal initialization failed: '+e.message);});
