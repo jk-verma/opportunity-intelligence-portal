@@ -250,5 +250,79 @@
       "advisor",
       "consultant"
     ]
+  },
+  {
+    "id": "icmr-research-calls",
+    "name": "ICMR research proposals",
+    "category": "research",
+    "url": "https://www.icmr.gov.in/call-for-proposals?reset=1",
+    "include": [
+      "call for",
+      "research proposals",
+      "grant",
+      "fellowship"
+    ]
+  },
+  {
+    "id": "anrf-grants",
+    "name": "ANRF ongoing research grants",
+    "category": "research",
+    "url": "https://www.anrfonline.in/ANRF/HomePage",
+    "include": [
+      "research grant",
+      "fellowship",
+      "proposal",
+      "professorship"
+    ]
+  },
+  {
+    "id": "worldbank-consultancy",
+    "name": "World Bank administrative procurement and consulting",
+    "category": "consultancy",
+    "url": "https://www.worldbank.org/en/about/corporate-procurement/business-opportunities/administrative-procurement",
+    "include": [
+      "consultant",
+      "consulting",
+      "advisory",
+      "assessment",
+      "digital",
+      "technical"
+    ]
+  },
+  {
+    "id": "worldbank-project-procurement",
+    "name": "World Bank project consulting notices",
+    "category": "consultancy",
+    "url": "https://projects.worldbank.org/en/projects-operations/procurement",
+    "include": [
+      "consulting",
+      "expression of interest",
+      "technical",
+      "advisory"
+    ]
+  },
+  {
+    "id": "adb-consultancy",
+    "name": "ADB consulting procurement",
+    "category": "consultancy",
+    "url": "https://www.adb.org/site/business-opportunities/operational-procurement/consulting",
+    "include": [
+      "consulting",
+      "consultant",
+      "procurement",
+      "assignment"
+    ]
+  },
+  {
+    "id": "icmr-jobs",
+    "name": "ICMR jobs and deputation",
+    "category": "government",
+    "url": "https://www.icmr.gov.in/whats-new",
+    "include": [
+      "deputation",
+      "recruitment",
+      "director",
+      "vacancy"
+    ]
   }
 ]
