@@ -24,7 +24,7 @@ def _decode(value):
 def _openai(text):
     key=os.getenv("OPENAI_API_KEY")
     if not key:return None
-    model=os.getenv("OPENAI_MODEL","gpt-4.1-mini")
+    model=(os.getenv("OPENAI_MODEL") or "gpt-4.1-mini")
     result=_post("https://api.openai.com/v1/chat/completions",key,{
         "model":model,"temperature":0,"response_format":{"type":"json_object"},
         "messages":[{"role":"system","content":SYSTEM},{"role":"user","content":text[:18000]}]
@@ -33,7 +33,7 @@ def _openai(text):
 def _anthropic(text):
     key=os.getenv("ANTHROPIC_API_KEY")
     if not key:return None
-    model=os.getenv("ANTHROPIC_MODEL","claude-haiku-4-5")
+    model=(os.getenv("ANTHROPIC_MODEL") or "claude-haiku-4-5")
     result=_post("https://api.anthropic.com/v1/messages",key,{
         "model":model,"max_tokens":1200,"system":SYSTEM,
         "messages":[{"role":"user","content":text[:18000]+"\nRespond with a JSON object only."}]
@@ -44,7 +44,7 @@ def _anthropic(text):
     return _decode(json.loads(response))
 def enrich(text):
     if not text or len(text.strip())<100:return {},None
-    order=os.getenv("AI_PROVIDER_PRIORITY","openai,anthropic").split(",")
+    order=(os.getenv("AI_PROVIDER_PRIORITY") or "openai,anthropic").split(",")
     providers={"openai":_openai,"anthropic":_anthropic}
     for name in order:
         name=name.strip().lower()
