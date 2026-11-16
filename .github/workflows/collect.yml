@@ -7,6 +7,7 @@ on:
       - 'collectors/publish_curated.py'
       - 'collectors/sources.json'
       - 'collectors/collect.py'
+      - 'collectors/ai_extract.py'
       - 'collectors/test_*.py'
       - '.github/workflows/collect.yml'
   schedule:
@@ -32,6 +33,11 @@ jobs:
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AI_PROVIDER_PRIORITY: ${{ vars.AI_PROVIDER_PRIORITY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
         run: python collectors/collect.py
 
       - name: Publish independently reviewed faculty notices
