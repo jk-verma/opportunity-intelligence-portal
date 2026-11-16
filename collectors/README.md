@@ -18,3 +18,13 @@ This is a conservative discovery prototype, **not** full vacancy extraction. It 
 Review candidate titles and actual advertisement PDFs, eligibility, publication dates and deadlines **before** changing `status` to `verified`. Do not mark an unverified link as verified. The source list is editable in `collectors/sources.json`. Additional categories and institution-specific collectors are future work.
 
 Run locally without database access: `python collectors/collect.py --dry-run`.
+
+## Advertisement-level filtering (version 2)
+
+The collector now rejects generic careers/navigation pages and requires a specific recruitment, funding, tender, award, or fellowship cue in the link label (or an advertisement-number pattern or a suitably labeled official document). Unit tests run before each scheduled collection. This is **candidate detection**, not a guarantee that a linked page is a current, open, eligible vacancy.
+
+**Structured extraction of publication dates, deadlines, qualifications, and pay is not yet implemented.** These fields remain empty rather than being inferred. No automatic promotion to `verified` occurs. Previously inserted generic pending records are not automatically deleted or modified, and must be reviewed separately.
+
+A green workflow may include source timeouts, which are logged in `collection_runs` as failures for the affected source. Generic navigation is filtered more aggressively, so a source may produce zero candidates.
+
+Run unit tests: `python -m unittest discover -s collectors -p 'test_*.py'`.
