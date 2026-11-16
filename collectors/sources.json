@@ -324,5 +324,84 @@
       "director",
       "vacancy"
     ]
+  },
+  {
+    "id": "niti-deputation",
+    "name": "NITI Aayog deputation and senior policy vacancies",
+    "category": "government",
+    "url": "https://www.niti.gov.in/work-niti/vacancy-circular",
+    "include": [
+      "deputation",
+      "specialist",
+      "adviser",
+      "advisor",
+      "lead",
+      "director",
+      "scientist",
+      "technology",
+      "digital",
+      "innovation"
+    ]
+  },
+  {
+    "id": "niti-opportunities",
+    "name": "NITI Aayog policy and consultancy opportunities",
+    "category": "consultancy",
+    "url": "https://www.niti.gov.in/work-niti/opportunities",
+    "include": [
+      "consultant",
+      "adviser",
+      "advisor",
+      "lead",
+      "specialist",
+      "analyst",
+      "technology"
+    ]
+  },
+  {
+    "id": "dst-scientific-vacancies",
+    "name": "DST scientist and deputation vacancies",
+    "category": "government",
+    "url": "https://www.dst.gov.in/offerings/vacancies",
+    "include": [
+      "scientist",
+      "scientific",
+      "deputation",
+      "adviser",
+      "director",
+      "technology",
+      "mission"
+    ]
+  },
+  {
+    "id": "dst-recruitment-cell",
+    "name": "DST scientific recruitment cell",
+    "category": "government",
+    "url": "https://dst.gov.in/node/833",
+    "include": [
+      "scientist",
+      "scientific",
+      "deputation",
+      "adviser",
+      "director",
+      "mission"
+    ]
+  },
+  {
+    "id": "meity-vacancies",
+    "name": "MeitY technology and deputation vacancies",
+    "category": "government",
+    "url": "https://www.meity.gov.in/offerings/vacancies",
+    "include": [
+      "deputation",
+      "scientist",
+      "technology",
+      "director",
+      "digital",
+      "information",
+      "cyber",
+      "specialist",
+      "consultant"
+    ]
   }
 ]
