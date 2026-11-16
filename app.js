@@ -7,6 +7,13 @@ let verified=[],pending=[];
 function el(tag,value,className){const n=document.createElement(tag);if(value!==undefined)n.textContent=String(value);if(className)n.className=className;return n;}
 function dateOf(value){if(!value)return null;const d=new Date(value);return Number.isNaN(d.getTime())?null:d;}
 function expired(o){const d=dateOf(o.deadline_at);return !!d&&d.getTime()<Date.now();}
+function academicTeachingRole(o){
+ if(o.category!=='academic')return true;
+ const title=String(o.title||'').toLowerCase();
+ const excluded=/\b(non[- ]teaching|non[- ]academic|administrative|administration|registrar|librarian|library assistant|accountant|accounts officer|finance officer|office assistant|office attendant|clerical|clerk|stenographer|driver|security|maintenance|technical assistant|junior engineer|executive assistant|administrative officer|program(?:me)? officer|placement officer|manager|staff recruitment)\b/i;
+ if(excluded.test(title))return false;
+ return /\b(professor|faculty|lecturer|teaching|academic associate|research professor|professor of practice)\b/i.test(title);
+}
 function safeUrl(value){try{const u=new URL(value);return u.protocol==='https:'?u.href:null;}catch{return null;}}
 for(const [key,name] of Object.entries(categoryNames)){const opt=el('option',name);opt.value=key;$('category').append(opt);}
 async function load(){
@@ -34,6 +41,7 @@ function render(){
  for(const o of pending)if(o&&o.official_url)byUrl.set(o.official_url,{...o,status:'pending'});
  for(const o of verified)if(o&&o.official_url)byUrl.set(o.official_url,{...o,status:'verified'});
  let rows=[...byUrl.values()].filter(o=>{
+  if(!academicTeachingRole(o))return false;
   if(cat&&o.category!==cat)return false;
   if(q&&![o.title,o.organizations?.name,o.location,o.description,o.eligibility,o.qualifications,o.experience_required,o.pay_details].join(' ').toLowerCase().includes(q))return false;
   if(deadline==='active'&&expired(o))return false;
