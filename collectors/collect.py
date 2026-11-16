@@ -8,7 +8,7 @@ import time
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from urllib.error import HTTPError, URLError
-from urllib.parse import urljoin, urlparse, urldefrag, quote
+from urllib.parse import urljoin, urlparse, urldefrag
 from urllib.request import Request, urlopen
 from urllib.robotparser import RobotFileParser
 from pathlib import Path
@@ -52,35 +52,78 @@ def permitted(url):
         print(f"Skipping {url}: cannot confirm robots.txt permission ({exc})", file=sys.stderr)
         return False
 
+# Reject generic navigation, informational pages, and unsupported application pages.
+GENERIC_LABELS = {
+    "careers", "career", "jobs", "vacancies", "recruitment",
+    "faculty recruitment", "job opportunities", "apply now",
+    "learn more", "read more", "view all", "current openings",
+    "call for proposals", "funding opportunities", "opportunities",
+}
+BAD_PATH_PARTS = (
+    "/chatbot", "/values", "/about-us", "/our-values", "/privacy",
+    "/terms", "/contact", "/faq", "/login", "/register", "/search",
+    "/news", "/events", "/subscribe",
+)
+ROLE_TERMS = (
+    "assistant professor", "associate professor", "professor of",
+    "faculty position", "faculty positions", "faculty vacancy",
+    "recruitment notification", "vacancy circular", "vacancy notice",
+    "advertisement no", "advertisement number", "recruitment advertisement",
+    "deputation post", "deputation vacancy", "lateral entry",
+    "request for proposal", "expression of interest", "tender notice",
+    "call for research proposals", "call for proposals", "research grant",
+    "research fellowship", "applications invited", "inviting applications",
+    "award nominations", "fellowship applications",
+)
+DOCUMENT_SUFFIXES = (".pdf", ".doc", ".docx")
+
+def candidate_link(href, label, source):
+    """Return a specific advertisement candidate, never a generic career landing page."""
+    label = " ".join(label.split())
+    if not 15 <= len(label) <= 220:
+        return None
+    lower = label.casefold()
+    if lower in GENERIC_LABELS or lower.startswith(("http://", "https://", "/content/")):
+        return None
+    if not any(term in lower for term in source["include"]):
+        return None
+    url = urldefrag(urljoin(source["url"], href))[0]
+    parsed = urlparse(url)
+    host = (urlparse(source["url"]).hostname or "").lower()
+    if parsed.scheme != "https" or not parsed.hostname:
+        return None
+    if parsed.hostname.lower() != host and not parsed.hostname.lower().endswith("." + host):
+        return None
+    path = parsed.path.casefold()
+    if any(part in path for part in BAD_PATH_PARTS):
+        return None
+    if url.rstrip("/") == source["url"].rstrip("/"):
+        return None
+    # Specific recruitment notices only; broad "jobs" and "career" are insufficient.
+    specific = any(term in lower for term in ROLE_TERMS)
+    numbered = bool(re.search(r"\\b(?:advt\\.?|advertisement|notification|vacancy|tender|rfp|eoi)\\s*(?:no\\.?|number|#|[:\\-])?\\s*[a-z0-9/-]*\\d", lower))
+    doc = path.endswith(DOCUMENT_SUFFIXES)
+    if not (specific or numbered or (doc and any(w in lower for w in ("recruitment", "faculty", "vacancy", "proposal", "fellowship", "award", "tender")))):
+        return None
+    return {
+        "title": label,
+        "category": source["category"],
+        "official_url": url,
+        "status": "pending",
+        "source_identifier": source["id"],
+    }
+
 def discover(source):
     page = source["url"]
     if not permitted(page):
         return []
     parser = Links()
     parser.feed(get(page))
-    host = urlparse(page).hostname or ""
     found = {}
     for href, label in parser.links:
-        if not label or len(label) < 12 or len(label) > 260:
-            continue
-        if not any(word.lower() in label.lower() for word in source["include"]):
-            continue
-        absolute = urldefrag(urljoin(page, href))[0]
-        parts = urlparse(absolute)
-        if parts.scheme != "https" or not parts.hostname:
-            continue
-        # Official source page and linked official subdomains only.
-        if parts.hostname != host and not parts.hostname.endswith("." + host):
-            continue
-        if absolute.rstrip("/") == page.rstrip("/"):
-            continue
-        found[absolute] = {
-            "title": label,
-            "category": source["category"],
-            "official_url": absolute,
-            "status": "pending",
-            "source_identifier": source["id"],
-        }
+        candidate = candidate_link(href, label, source)
+        if candidate:
+            found[candidate["official_url"]] = candidate
     return list(found.values())[:40]
 
 def api_request(path, method="GET", payload=None, headers=None):
