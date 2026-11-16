@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Faculty recruitment (rolling applications), IIM Ahmedabad",
+    "category": "academic",
+    "location": "Ahmedabad, Gujarat, India",
+    "official_url": "https://www.iima.ac.in/the-institute/administration/work-with-us/faculty-ahmedabad-campus/regular-recruitment",
+    "description": "Official regular faculty recruitment for management disciplines including Information Systems. Applications invited at multiple faculty ranks.",
+    "qualifications": "Ph.D. in relevant area; applicants nearing doctoral completion may apply for Assistant Professor.",
+    "experience_required": "Assistant Professor: experience desirable but not essential. Higher ranks require relevant teaching and research experience.",
+    "pay_details": "Assistant Professor pay levels 12 or 13A1, as stated on official recruitment page.",
+    "published_at": null,
+    "deadline_at": null,
+    "source_identifier": "curated-iima-rolling"
+  },
+  {
+    "title": "Faculty recruitment, rolling advertisement 2026/02, IIM Mumbai",
+    "category": "academic",
+    "location": "Mumbai, Maharashtra, India",
+    "official_url": "https://iimmumbai.ac.in/faculty-recruitment",
+    "description": "Rolling faculty advertisement Admn/Rectt/Faculty/2026/02 dated 13 October 2026; corrigendum dated 23 October 2026. Consult the linked advertisement and application portal.",
+    "published_at": "2026-10-13",
+    "deadline_at": null,
+    "source_identifier": "curated-iimm-2026-02"
+  },
+  {
+    "title": "Professor of Practice (rolling, contract), IIFT",
+    "category": "academic",
+    "location": "Delhi, Kolkata, Kakinada and GIFT City, India",
+    "official_url": "https://www.iift.ac.in/uploads/manage-files/2026/10/revised-advertisement-for-engagement-of-pop.pdf",
+    "description": "Rolling Professor of Practice recruitment in International Trade and Logistics, Strategy, Supply Chain Management and Information Technology.",
+    "qualifications": "Distinguished professional track record; formal academic qualification is not essential under the advertisement.",
+    "experience_required": "Minimum 15 years of professional experience at senior managerial level.",
+    "published_at": null,
+    "deadline_at": null,
+    "source_identifier": "curated-iift-pop"
+  },
+  {
+    "title": "Faculty recruitment, regular, November 2026, IIM Ranchi",
+    "category": "academic",
+    "location": "Ranchi, Jharkhand, India",
+    "official_url": "https://iimranchi.ac.in/careers/",
+    "description": "Official careers page lists a new regular faculty recruitment notice dated 11 November 2026, advertisement ADVT/IIMR/IPC-FR/ALL/2026/NOV. Review the notice for eligibility and deadlines.",
+    "published_at": "2026-11-11",
+    "deadline_at": null,
+    "source_identifier": "curated-iimr-regular-nov2026"
+  },
+  {
+    "title": "Faculty recruitment, special recruitment drive, November 2026, IIM Ranchi",
+    "category": "academic",
+    "location": "Ranchi, Jharkhand, India",
+    "official_url": "https://iimranchi.ac.in/careers/",
+    "description": "Official careers page lists a new special recruitment drive notice dated 11 November 2026, advertisement ADVT/IIMR/IPC-FR/SRD/2026/NOV. Review category-specific eligibility and deadlines.",
+    "published_at": "2026-11-11",
+    "deadline_at": null,
+    "source_identifier": "curated-iimr-srd-nov2026"
+  },
+  {
+    "title": "Faculty positions, 2026, IIM Jammu",
+    "category": "academic",
+    "location": "Jammu, Jammu and Kashmir, India",
+    "official_url": "https://www.iimj.ac.in/advertisement-faculty-positions-nov2026.php",
+    "description": "Official 2026 faculty advertisement includes IT Systems and Analytics: AI, cloud and IoT analytics, blockchain, cybersecurity, quantum computing and digital governance.",
+    "published_at": null,
+    "deadline_at": null,
+    "source_identifier": "curated-iimj-nov2026"
+  },
+  {
+    "title": "Faculty positions, special recruitment drive, IIM Indore",
+    "category": "academic",
+    "location": "Indore, Madhya Pradesh, India",
+    "official_url": "https://iimidr.ac.in/advertisement-for-faculty-positions/",
+    "description": "Official faculty recruitment page lists positions in Information Systems and other management areas under a special recruitment drive. Check application availability and category eligibility.",
+    "qualifications": "Ph.D. or equivalent in appropriate branch, with specified academic record.",
+    "experience_required": "Assistant Professor generally three years post-Ph.D. teaching, research or industrial experience; exceptions and contract provisions described on official page.",
+    "pay_details": "Assistant Professor pay level 12; other ranks as stated in advertisement.",
+    "published_at": null,
+    "deadline_at": null,
+    "source_identifier": "curated-iimi-srd"
+  }
+]
