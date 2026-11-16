@@ -1,0 +1,131 @@
+{
+  "scope": "Public IIM institutions; registry does not imply that an automated adapter exists",
+  "institutions": [
+    {
+      "name": "Indian Institute of Management Ahmedabad",
+      "category": "academic",
+      "adapter_status": "pilot_unreliable"
+    },
+    {
+      "name": "Indian Institute of Management Bangalore",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Calcutta",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Lucknow",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Kozhikode",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Indore",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Shillong",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Rohtak",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Ranchi",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Raipur",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Tiruchirappalli",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Udaipur",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Kashipur",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Amritsar",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Bodh Gaya",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Nagpur",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Sambalpur",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Sirmaur",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Visakhapatnam",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Jammu",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    },
+    {
+      "name": "Indian Institute of Management Mumbai",
+      "category": "academic",
+      "adapter_status": "not_configured"
+    }
+  ],
+  "additional_targets": [
+    "Indian Institute of Foreign Trade",
+    "Faculty of Management Studies, University of Delhi",
+    "IIT management departments",
+    "NIT management departments",
+    "Central universities",
+    "Foreign university branch campuses in India",
+    "CAG and IA&AD",
+    "UPSC",
+    "DoPT",
+    "MeitY",
+    "UN system",
+    "World Bank Group",
+    "Asian Development Bank",
+    "IMF",
+    "OECD",
+    "WTO",
+    "Government research funders",
+    "Government and multilateral consultancy",
+    "Awards and fellowships"
+  ]
+}
