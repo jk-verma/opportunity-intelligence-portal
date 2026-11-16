@@ -35,24 +35,14 @@
     "source_identifier": "curated-iift-pop"
   },
   {
-    "title": "Faculty recruitment, regular, November 2026, IIM Ranchi",
+    "title": "Faculty recruitment, regular and special drives, November 2026, IIM Ranchi",
     "category": "academic",
     "location": "Ranchi, Jharkhand, India",
     "official_url": "https://iimranchi.ac.in/careers/",
-    "description": "Official careers page lists a new regular faculty recruitment notice dated 11 November 2026, advertisement ADVT/IIMR/IPC-FR/ALL/2026/NOV. Review the notice for eligibility and deadlines.",
+    "description": "Official careers page lists two new notices dated 11 November 2026: regular faculty recruitment (ADVT/IIMR/IPC-FR/ALL/2026/NOV) and special recruitment drive (ADVT/IIMR/IPC-FR/SRD/2026/NOV). Check the relevant notice for eligibility and deadlines.",
     "published_at": "2026-11-11",
     "deadline_at": null,
     "source_identifier": "curated-iimr-regular-nov2026"
-  },
-  {
-    "title": "Faculty recruitment, special recruitment drive, November 2026, IIM Ranchi",
-    "category": "academic",
-    "location": "Ranchi, Jharkhand, India",
-    "official_url": "https://iimranchi.ac.in/careers/",
-    "description": "Official careers page lists a new special recruitment drive notice dated 11 November 2026, advertisement ADVT/IIMR/IPC-FR/SRD/2026/NOV. Review category-specific eligibility and deadlines.",
-    "published_at": "2026-11-11",
-    "deadline_at": null,
-    "source_identifier": "curated-iimr-srd-nov2026"
   },
   {
     "title": "Faculty positions, 2026, IIM Jammu",
