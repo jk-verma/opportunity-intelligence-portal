@@ -14,6 +14,7 @@ from urllib.robotparser import RobotFileParser
 from pathlib import Path
 from extract import extract, page_lines
 from ai_extract import enrich
+from relevance import relevant
 
 USER_AGENT = "OpportunityIntelligencePortal/0.1 (public opportunity discovery; contact via GitHub)"
 ROOT = Path(__file__).resolve().parent
@@ -93,6 +94,8 @@ def candidate_link(href, label, source):
         return None
     lower = label.casefold()
     if source["category"] == "academic" and (ACADEMIC_EXCLUDE.search(label) or not ACADEMIC_TEACHING.search(label)):
+        return None
+    if not relevant(label, source["category"]):
         return None
     if lower in GENERIC_LABELS or lower.startswith(("http://", "https://", "/content/")):
         return None
