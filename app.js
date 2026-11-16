@@ -5,7 +5,7 @@ const categoryNames={academic:'Academic careers',government:'Government & deputa
 const apiBase=(cfg.url||'').replace(/\/$/,'');
 const publicHeaders={apikey:cfg.publishableKey||''};
 const STORAGE_KEY='oip_local_applications_v1';
-let opportunities=[],applications=new Map(),selectedId=null;
+let opportunities=[],applications=new Map(),selectedId=null,viewMode='table';
 try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');if(saved&&typeof saved==='object'&&!Array.isArray(saved))applications=new Map(Object.entries(saved));}catch{applications=new Map();}
 function persistLocal(){localStorage.setItem(STORAGE_KEY,JSON.stringify(Object.fromEntries(applications)));}
 for(const [key,name] of Object.entries(categoryNames)){const opt=document.createElement('option');opt.value=key;opt.textContent=name;$('category').append(opt);}
