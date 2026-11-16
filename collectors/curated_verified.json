@@ -66,5 +66,40 @@
     "published_at": null,
     "deadline_at": null,
     "source_identifier": "curated-iimi-srd"
+  },
+  {
+    "title": "Faculty recruitment, including Information Systems, IIM Bangalore",
+    "category": "academic",
+    "location": "Bengaluru, Karnataka, India",
+    "official_url": "https://www.iimb.ac.in/faculty-recruitments/area-specific",
+    "description": "Official area-specific recruitment page invites faculty applications in Information Systems, economics, finance, public policy, strategy and other areas. Application process and role requirements vary by area.",
+    "qualifications": "Information Systems Assistant Professor: completed Ph.D. or in final stages of completion; demonstrated research potential.",
+    "experience_required": "Associate Professor and senior ranks require an established research and teaching record.",
+    "published_at": null,
+    "deadline_at": null,
+    "source_identifier": "curated-iimb-area"
+  },
+  {
+    "title": "Faculty positions, including Management Information Systems, IIM Calcutta",
+    "category": "academic",
+    "location": "Kolkata, West Bengal, India",
+    "official_url": "https://www.iimcal.ac.in/call-for-faculty-positions-iim-calcutta",
+    "description": "Rolling faculty recruitment covering Management Information Systems, cloud computing, AR/VR, digital analytics, data engineering, technology entrepreneurship and other management disciplines. Applications reviewed until positions are filled.",
+    "qualifications": "Excellent academic and research record appropriate to the faculty rank; consult area-specific requirements.",
+    "pay_details": "Salary and allowances according to Government of India norms, as stated by IIM Calcutta.",
+    "published_at": null,
+    "deadline_at": null,
+    "source_identifier": "curated-iimc-rolling"
+  },
+  {
+    "title": "Rolling faculty recruitment in AI and Business Analytics, IIM Lucknow",
+    "category": "academic",
+    "location": "Lucknow, Uttar Pradesh, India",
+    "official_url": "https://iiml.ac.in/node/496",
+    "description": "Official rolling advertisement for Assistant Professor Grade I/II in Artificial Intelligence, Business Analytics and related disciplines. Check the official application instructions and current submission availability.",
+    "qualifications": "Outstanding academic record, research ability and commitment to teaching; detailed rank-specific criteria in the advertisement.",
+    "published_at": null,
+    "deadline_at": null,
+    "source_identifier": "curated-iiml-ai"
   }
 ]
