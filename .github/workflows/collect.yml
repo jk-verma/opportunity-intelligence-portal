@@ -7,6 +7,7 @@ on:
       - 'collectors/publish_curated.py'
       - 'collectors/sources.json'
       - 'collectors/collect.py'
+      - 'collectors/relevance.py'
       - 'collectors/ai_extract.py'
       - 'collectors/test_*.py'
       - '.github/workflows/collect.yml'
