@@ -1,7 +1,7 @@
 [
   {
-    "id": "072363a5-f6d3-4f2e-b976-5283b2e5291e",
-    "title": "Advertisement for Inviting Applications: Project Staff Position",
+    "id": "de0d1d7d-6f51-43a8-99fd-744bf16a477e",
+    "title": "Non-Faculty Positions",
     "category": "academic",
     "location": null,
     "description": null,
@@ -11,12 +11,12 @@
     "pay_details": null,
     "published_at": null,
     "deadline_at": null,
-    "official_url": "https://iimranchi.ac.in/career/2026/05/23158/",
-    "source_identifier": "iimr-careers"
+    "official_url": "https://www.iimj.ac.in/advertisement-non-faculty-positions.php",
+    "source_identifier": "iimj-faculty"
   },
   {
-    "id": "75dc6c7e-fc4a-4c1f-a2ec-e93f68aa6963",
-    "title": "Announcement of Seminar & Interview Schedule of Special Recruitment Drive for SC/ST/NC-OBC/EWS/PWD for Faculty Positions",
+    "id": "346f6cad-dd19-43f6-9eb6-3d65a23aba66",
+    "title": "Faculty Positions",
     "category": "academic",
     "location": null,
     "description": null,
@@ -26,53 +26,8 @@
     "pay_details": null,
     "published_at": null,
     "deadline_at": null,
-    "official_url": "https://iimranchi.ac.in/career/2024/02/8932/",
-    "source_identifier": "iimr-careers"
-  },
-  {
-    "id": "0dd3965b-9d3c-4d79-9f3f-9dbb7436c260",
-    "title": "Special Recruitment Drive for SC/ST/NC-OBC/EWS/PWD for Faculty Positions",
-    "category": "academic",
-    "location": null,
-    "description": null,
-    "eligibility": null,
-    "qualifications": null,
-    "experience_required": null,
-    "pay_details": null,
-    "published_at": null,
-    "deadline_at": null,
-    "official_url": "https://iimranchi.ac.in/career/2024/01/8815/",
-    "source_identifier": "iimr-careers"
-  },
-  {
-    "id": "685326f3-1380-4ff2-a3a0-c25f67748bbc",
-    "title": "Call for Applications for International Visiting Faculty Positions (Full-Time)",
-    "category": "academic",
-    "location": null,
-    "description": null,
-    "eligibility": null,
-    "qualifications": null,
-    "experience_required": null,
-    "pay_details": null,
-    "published_at": null,
-    "deadline_at": null,
-    "official_url": "https://iimranchi.ac.in/career/2023/08/7584/",
-    "source_identifier": "iimr-careers"
-  },
-  {
-    "id": "f86d0fc2-674c-4f9c-a529-2c9c0c56bc8d",
-    "title": "Notice for Faculty Recruitment (SRD, Advt No ADVT/IIMR/IPC-FR/SRD/2026/NOV)",
-    "category": "academic",
-    "location": null,
-    "description": null,
-    "eligibility": null,
-    "qualifications": null,
-    "experience_required": null,
-    "pay_details": null,
-    "published_at": null,
-    "deadline_at": null,
-    "official_url": "https://iimranchi.ac.in/career/2026/11/26506/",
-    "source_identifier": "iimr-careers"
+    "official_url": "https://www.iimj.ac.in/advertisement-faculty-positions.php",
+    "source_identifier": "iimj-faculty"
   },
   {
     "id": "6142df13-bb77-4c34-8034-46fad9c55ea0",
@@ -225,6 +180,66 @@
     "source_identifier": "iimr-careers"
   },
   {
+    "id": "f86d0fc2-674c-4f9c-a529-2c9c0c56bc8d",
+    "title": "Notice for Faculty Recruitment (SRD, Advt No ADVT/IIMR/IPC-FR/SRD/2026/NOV)",
+    "category": "academic",
+    "location": null,
+    "description": null,
+    "eligibility": null,
+    "qualifications": null,
+    "experience_required": null,
+    "pay_details": null,
+    "published_at": null,
+    "deadline_at": null,
+    "official_url": "https://iimranchi.ac.in/career/2026/11/26506/",
+    "source_identifier": "iimr-careers"
+  },
+  {
+    "id": "0dd3965b-9d3c-4d79-9f3f-9dbb7436c260",
+    "title": "Special Recruitment Drive for SC/ST/NC-OBC/EWS/PWD for Faculty Positions",
+    "category": "academic",
+    "location": null,
+    "description": null,
+    "eligibility": null,
+    "qualifications": null,
+    "experience_required": null,
+    "pay_details": null,
+    "published_at": null,
+    "deadline_at": null,
+    "official_url": "https://iimranchi.ac.in/career/2024/01/8815/",
+    "source_identifier": "iimr-careers"
+  },
+  {
+    "id": "685326f3-1380-4ff2-a3a0-c25f67748bbc",
+    "title": "Call for Applications for International Visiting Faculty Positions (Full-Time)",
+    "category": "academic",
+    "location": null,
+    "description": null,
+    "eligibility": null,
+    "qualifications": null,
+    "experience_required": null,
+    "pay_details": null,
+    "published_at": null,
+    "deadline_at": null,
+    "official_url": "https://iimranchi.ac.in/career/2023/08/7584/",
+    "source_identifier": "iimr-careers"
+  },
+  {
+    "id": "072363a5-f6d3-4f2e-b976-5283b2e5291e",
+    "title": "Advertisement for Inviting Applications: Project Staff Position",
+    "category": "academic",
+    "location": null,
+    "description": null,
+    "eligibility": null,
+    "qualifications": null,
+    "experience_required": null,
+    "pay_details": null,
+    "published_at": null,
+    "deadline_at": null,
+    "official_url": "https://iimranchi.ac.in/career/2026/05/23158/",
+    "source_identifier": "iimr-careers"
+  },
+  {
     "id": "5d702426-0938-435c-8838-45334b725c97",
     "title": "Advertisement for Faculty Positions",
     "category": "academic",
@@ -330,6 +345,36 @@
     "source_identifier": "iimr-careers"
   },
   {
+    "id": "75dc6c7e-fc4a-4c1f-a2ec-e93f68aa6963",
+    "title": "Announcement of Seminar & Interview Schedule of Special Recruitment Drive for SC/ST/NC-OBC/EWS/PWD for Faculty Positions",
+    "category": "academic",
+    "location": null,
+    "description": null,
+    "eligibility": null,
+    "qualifications": null,
+    "experience_required": null,
+    "pay_details": null,
+    "published_at": null,
+    "deadline_at": null,
+    "official_url": "https://iimranchi.ac.in/career/2024/02/8932/",
+    "source_identifier": "iimr-careers"
+  },
+  {
+    "id": "260d9d5d-0b69-4631-ab05-07f4152b686a",
+    "title": "https://www.worldbank.org/ext/en/careers",
+    "category": "international",
+    "location": null,
+    "description": null,
+    "eligibility": null,
+    "qualifications": null,
+    "experience_required": null,
+    "pay_details": null,
+    "published_at": null,
+    "deadline_at": null,
+    "official_url": "https://www.worldbank.org/ext/en/careers",
+    "source_identifier": "worldbank-jobs"
+  },
+  {
     "id": "c9a5e7d4-6b2f-4de9-a718-0843cd149cbd",
     "title": "https://www.worldbank.org/ext/en/careers/world-bank-group-values",
     "category": "international",
@@ -357,21 +402,6 @@
     "published_at": null,
     "deadline_at": null,
     "official_url": "https://www.worldbank.org/content/dam/theworldbankgroupasset/corporate/fragment/careers/en/chatbot",
-    "source_identifier": "worldbank-jobs"
-  },
-  {
-    "id": "260d9d5d-0b69-4631-ab05-07f4152b686a",
-    "title": "https://www.worldbank.org/ext/en/careers",
-    "category": "international",
-    "location": null,
-    "description": null,
-    "eligibility": null,
-    "qualifications": null,
-    "experience_required": null,
-    "pay_details": null,
-    "published_at": null,
-    "deadline_at": null,
-    "official_url": "https://www.worldbank.org/ext/en/careers",
     "source_identifier": "worldbank-jobs"
   }
 ]
