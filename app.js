@@ -56,7 +56,30 @@ function render(){
  rows.sort((a,b)=>sort==='title'?a.title.localeCompare(b.title):sort==='deadline'?(dateOf(a.deadline_at)?.getTime()??Infinity)-(dateOf(b.deadline_at)?.getTime()??Infinity):(dateOf(b.published_at)?.getTime()??0)-(dateOf(a.published_at)?.getTime()??0));
  $('results-summary').textContent=rows.length+' result'+(rows.length===1?'':'s')+' · Decisions are saved only on this device';
  const root=$('categories');root.replaceChildren();
+ root.className=viewMode==='table'?'table-container':'grid';
+ $('table-view').setAttribute('aria-pressed',String(viewMode==='table'));
+ $('card-view').setAttribute('aria-pressed',String(viewMode==='cards'));
  if(!rows.length){root.append(el('div',opportunities.length?'No opportunities match the current filters.':'No verified opportunities have been published yet. The collectors are active, but unverified records are intentionally hidden.','empty'));return;}
+ if(viewMode==='table'){
+  const table=el('table',undefined,'opportunity-table'),head=el('thead'),header=el('tr');
+  for(const name of ['#','Institution / opportunity','Category','Location','Published','Deadline','Eligibility / qualifications','Pay','My decision','Official source'])header.append(el('th',name));
+  head.append(header);table.append(head);
+  const body=el('tbody');
+  for(const [index,o] of rows.entries()){
+   const tr=el('tr');
+   tr.append(el('td',index+1));
+   const name=el('td');name.append(el('strong',o.organizations?.name||o.title));
+   if(o.organizations?.name)name.append(el('div',o.title,'table-sub'));
+   if(o.description){const details=el('details');const summary=el('summary','Details');details.append(summary,el('p',o.description));if(o.experience_required)details.append(el('p','Experience: '+o.experience_required));name.append(details);}
+   tr.append(name,el('td',categoryNames[o.category]||o.category),el('td',o.location||'Not specified'),el('td',o.published_at||'Not specified'),el('td',o.deadline_at?new Date(o.deadline_at).toLocaleDateString():'Not specified'));
+   const qual=el('td',o.eligibility||o.qualifications||'See official notice');if(o.eligibility&&o.qualifications)qual.append(el('div',o.qualifications,'table-sub'));tr.append(qual,el('td',o.pay_details||'See official notice'));
+   const decision=el('td'),button=el('button',decisionOf(o)==='none'?'Track':decisionOf(o));button.type='button';button.addEventListener('click',()=>openDecision(o));decision.append(button);tr.append(decision);
+   const source=el('td'),url=safeUrl(o.official_url);
+   if(url){const a=el('a','Open notice');a.href=url;a.target='_blank';a.rel='noopener noreferrer';source.append(a);}else source.textContent='Unavailable';
+   tr.append(source);body.append(tr);
+  }
+  table.append(body);root.append(table);return;
+ }
  for(const o of rows){
   const card=el('article',undefined,'card');
   card.append(el('span',categoryNames[o.category]||o.category,'tag'),el('h2',o.title),el('p',[o.organizations?.name,o.location].filter(Boolean).join(' · ')));
@@ -96,5 +119,6 @@ $('decision-form').addEventListener('submit',e=>{
  }catch(err){$('decision-message').textContent='Could not save locally: '+err.message;}
 });
 $('cancel-decision').addEventListener('click',()=>$('decision-dialog').close());
+for(const mode of ['table','card'])$(mode+'-view').addEventListener('click',()=>{viewMode=mode==='table'?'table':'cards';render();});
 for(const id of ['search','category','deadline','decision-filter','sort'])$(id).addEventListener(id==='search'?'input':'change',render);
 loadOpportunities().catch(e=>{status('Portal initialization failed: '+e.message);});
