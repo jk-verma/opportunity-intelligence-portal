@@ -9,12 +9,14 @@ function dateOf(value){if(!value)return null;const d=new Date(value);return Numb
 function expired(o){const d=dateOf(o.deadline_at);return !!d&&d.getTime()<Date.now();}
 const focusTerms=/\b(information (?:technology|systems|management)|knowledge management|computer science|computing|software|data (?:science|analytics|engineering|management)|business analytics|business intelligence|artificial intelligence|machine learning|generative ai|digital (?:transformation|technology|governance|economy|infrastructure)|cloud computing|high.performance computing|hpc|cybersecurity|cyber security|blockchain|quantum computing|internet of things|iot|automation|management information systems|mis|technology management|decision support|fintech|financial technology|enterprise systems|information security|database|programming|python|analytics|digitalization|digitisation|digitization|e.governance|digital public infrastructure|ict|it systems|ai\/ml|operations research|optimization|optimisation)\b/i;
 const unrelatedDisciplines=/\b(agriculture|agronomy|horticulture|veterinary|nursing|dentistry|pharmacology|physiotherapy|anatomy|botany|zoology|geology|civil engineering|mechanical engineering|chemical engineering|literature|linguistics|history|archaeology|fine arts|music|physical education|sports coaching)\b/i;
+const seniorScientific=/\b(deputation|scientist|scientific attache|scientific attaché|senior adviser|senior advisor|adviser|advisor|specialist|mission director|technical director|joint director|deputy director|policy lead|research officer|innovation lead|technology lead)\b/i;
 function relevantToFocus(o){
  const title=String(o.title||'');
  const details=[o.description,o.qualifications,o.eligibility].join(' ');
  if(focusTerms.test(title))return true;
  if(unrelatedDisciplines.test(title))return false;
  if(focusTerms.test(details))return true;
+ if(['government','consultancy','international'].includes(o.category)&&seniorScientific.test(title))return true;
  return o.category==='academic'&&/\b(faculty|professor|lecturer|teaching)\b/i.test(title);
 }
 function academicTeachingRole(o){
@@ -60,7 +62,7 @@ function render(){
   return true;
  });
  rows.sort((a,b)=>sort==='title'?String(a.title).localeCompare(String(b.title)):sort==='deadline'?(dateOf(a.deadline_at)?.getTime()??Infinity)-(dateOf(b.deadline_at)?.getTime()??Infinity):(dateOf(b.published_at)?.getTime()??0)-(dateOf(a.published_at)?.getTime()??0));
- $('results-summary').textContent=rows.length+' relevant listings · focused on IT, Information Systems, AI, analytics and digital technology';
+ $('results-summary').textContent=rows.length+' relevant listings · focused on IT, AI, analytics, scientific deputation and policy advisory roles';
  const root=$('categories');root.replaceChildren();
  if(!rows.length){root.append(el('p','No listings match the current filters, or the discovery snapshot has not been published.','empty'));return;}
  const table=el('table',undefined,'opportunity-table'),head=el('thead'),header=el('tr');
