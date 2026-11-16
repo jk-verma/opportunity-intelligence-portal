@@ -155,9 +155,9 @@
     "category": "consultancy",
     "location": "Latin America and Caribbean",
     "official_url": "https://www.worldbank.org/en/about/corporate-procurement/business-opportunities/administrative-procurement",
-    "description": "World Bank administrative procurement listing RFxNow 2024432, digital infrastructure investments in LAC. The official procurement index gives closing date 26 November 2026. Check the detailed solicitation for eligibility.",
+    "description": "World Bank administrative procurement listing RFxNow 2024432, digital infrastructure investments in LAC. The official procurement index gives closing date 26 November 2026. Check the detailed solicitation for eligibility. Exact closing time and timezone not established; the portal does not assume one.",
     "published_at": "2026-11-12",
-    "deadline_at": "2026-11-26T23:59:00Z",
+    "deadline_at": null,
     "source_identifier": "curated-wbg-digital-corridors-2024432"
   }
 ]
