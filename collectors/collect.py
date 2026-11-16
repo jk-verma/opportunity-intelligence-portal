@@ -132,6 +132,7 @@ def main():
         # Check DB permissions before contacting external sources.
         api_request("collection_runs?select=id&limit=1")
     failures = 0
+    source_errors = 0
     for source in sources:
         if source["category"] not in ALLOWED_CATEGORIES:
             raise ValueError("Unknown category")
@@ -141,7 +142,14 @@ def main():
             if not args.dry_run:
                 persist(candidates)
                 record_run(source, "completed", len(candidates), 0)
+        except (HTTPError, URLError, TimeoutError) as exc:
+            # Individual official sites can be temporarily unreachable from GitHub runners.
+            source_errors += 1
+            print(f"Source temporarily unavailable: {source['id']}: {exc}", file=sys.stderr)
+            if not args.dry_run:
+                record_run(source, "failed", error=f"Source unreachable: {exc}")
         except Exception as exc:
+            # Database, parsing, or unexpected errors still fail the workflow.
             failures += 1
             print(f"Collector {source['id']} failed: {exc}", file=sys.stderr)
             if not args.dry_run:
@@ -150,6 +158,7 @@ def main():
                 except Exception as log_exc:
                     print(f"Logging failed: {log_exc}", file=sys.stderr)
         time.sleep(1)
+    print(json.dumps({"source_unavailable": source_errors, "unexpected_failures": failures}))
     if failures:
         sys.exit(f"{failures} collector(s) failed")
 
